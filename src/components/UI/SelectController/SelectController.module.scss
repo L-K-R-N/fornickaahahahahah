@@ -1,0 +1,31 @@
+@import '@/styles/vars';
+@import '@/styles/mixins';
+@import '@/styles/fonts';
+
+.container {
+   &__input {
+      @include input;
+      width: 100%;
+   }
+
+   & > span {
+      font-weight: 400;
+      color: $red;
+   }
+
+   &.error {
+   }
+   & div {
+      font-family: $font-tildaSans;
+   }
+   @media screen and (max-width: 800px) {
+      & div {
+         font-size: 14px !important;
+      }
+   }
+   @media screen and (max-width: 450px) {
+      & div {
+         font-size: 12px !important;
+      }
+   }
+}

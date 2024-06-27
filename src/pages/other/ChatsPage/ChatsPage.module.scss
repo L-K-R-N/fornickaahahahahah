@@ -1,0 +1,239 @@
+@import '@/styles/vars';
+@import '@/styles/mixins';
+@import '@/styles/fonts';
+
+.page {
+   width: 100vw;
+   @include flex($align: stretch);
+   font-family: $font-tildaSans;
+   max-height: calc(100vh - var(--header-height));
+   overflow: hidden;
+   .backBtn {
+      display: none;
+   }
+   .currentChat {
+      width: 80%;
+   }
+   .chatsList {
+      width: 20%;
+      border-right: 1px solid var(--text-primary);
+      @include flex($direction: column, $align: stretch, $justify: start);
+      background: var(--negative);
+      &__search {
+         width: 100%;
+         @include flex($justify: center);
+         padding: 20px 14px;
+         &_input {
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+            background: var(--negative-02);
+            font-weight: 400;
+            font-size: 20px;
+            padding: 10px 16px;
+
+            color: var(--text-primary);
+            &::placeholder {
+            }
+         }
+
+         border-bottom: 1px solid var(--text-tertiary);
+      }
+
+      &__main {
+         @include flex($direction: column);
+         width: 100%;
+      }
+
+      &__item {
+         @include flex($justify: start);
+         gap: 12px;
+         overflow: hidden;
+
+         width: 100%;
+         padding: 13px;
+         background: var(--negative-02);
+         font-size: 20px;
+         font-weight: 400;
+         border-bottom: 1px solid var(--text-tertiary);
+         color: var(--text-primary);
+         opacity: 0.7;
+         cursor: pointer;
+         transition: 0.3s;
+
+         &:hover {
+            opacity: 0.9;
+         }
+
+         &.active {
+            opacity: 1;
+         }
+
+         & > img {
+            border-radius: 999px;
+            width: 45px;
+            height: 45px;
+            background: var(--text-primary);
+            border: 1px solid rgb(192, 192, 192);
+         }
+      }
+
+      &__text {
+         @include flex($direction: column, $align: start);
+         gap: 10px;
+         max-width: 100%;
+         .lastMessage {
+            text-overflow: ellipsis;
+            max-width: 80%;
+            white-space: nowrap;
+            overflow: hidden;
+         }
+      }
+   }
+}
+
+@media screen and (max-width: 1000px) {
+   .page {
+      width: 100vw;
+      @include flex($align: stretch);
+      font-family: $font-tildaSans;
+      .chatsList {
+         width: 30%;
+
+         &__main {
+            @include flex($direction: column);
+            width: 100%;
+         }
+
+         .currentChat {
+            width: 70%;
+         }
+
+         &__item {
+            @include flex($justify: start);
+            gap: 12px;
+
+            width: 100%;
+            padding: 13px;
+            background: var(--negative-02);
+            font-size: 20px;
+            font-weight: 400;
+            border-bottom: 1px solid var(--text-tertiary);
+            color: var(--text-primary);
+            opacity: 0.7;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover {
+               opacity: 0.9;
+            }
+
+            &.active {
+               opacity: 1;
+            }
+
+            & > img {
+               border-radius: 999px;
+               width: 45px;
+               height: 45px;
+               background: var(--text-primary);
+               border: 1px solid rgb(192, 192, 192);
+            }
+         }
+
+         &__text {
+            @include flex($direction: column, $align: start);
+            gap: 10px;
+            max-width: 100%;
+            .lastMessage {
+               text-overflow: ellipsis;
+               max-width: 80%;
+               white-space: nowrap;
+               overflow: hidden;
+            }
+         }
+      }
+   }
+}
+@media screen and (max-width: 600px) {
+   .page {
+      width: 100vw;
+      @include flex($align: stretch);
+      font-family: $font-tildaSans;
+      .backBtn {
+         display: block;
+         border-radius: 999px;
+         position: fixed;
+         top: 10vh;
+         left: 10px;
+         border: none;
+         background-color: transparent;
+         color: var(--text-primary);
+      }
+      .currentChat {
+         width: 100vw;
+      }
+      .chatsList {
+         width: 100vw;
+         position: fixed;
+         top: var(--header-height);
+         left: 0;
+         z-index: 99999999;
+         transform: translateX(-100vw);
+         height: 100vh;
+         background: rgba(2, 2, 2, 0.986);
+         transition: 0.3s;
+         &.active {
+            transform: translateX(0);
+         }
+         &__search {
+            &_input {
+            }
+         }
+
+         &__item {
+            @include flex($justify: start);
+            gap: 12px;
+
+            width: 100%;
+            padding: 13px;
+            background: var(--negative-02);
+            font-size: 20px;
+            font-weight: 400;
+            border-bottom: 1px solid var(--text-tertiary);
+            color: var(--text-primary);
+            opacity: 0.7;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover {
+               opacity: 0.9;
+            }
+
+            &.active {
+               opacity: 1;
+            }
+
+            & > img {
+               border-radius: 999px;
+               width: 45px;
+               height: 45px;
+               background: var(--text-primary);
+               border: 1px solid rgb(192, 192, 192);
+            }
+         }
+
+         &__text {
+            @include flex($direction: column, $align: start);
+            gap: 10px;
+            max-width: 100%;
+            .lastMessage {
+               text-overflow: ellipsis;
+               max-width: 80%;
+               white-space: nowrap;
+               overflow: hidden;
+            }
+         }
+      }
+   }
+}

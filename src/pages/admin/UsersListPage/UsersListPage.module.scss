@@ -1,0 +1,121 @@
+@import '@/styles/vars';
+@import '@/styles/mixins';
+@import '@/styles/fonts';
+
+.page {
+   padding: 30px;
+   @include flex($align: stretch);
+   width: 100%;
+}
+
+.usersList {
+   font-family: $font-tildaSans;
+   background: black;
+   @include flex($direction: column, $justify: start, $align: stretch);
+   border-radius: 20px;
+   color: white;
+   font-weight: 400;
+   width: 49%;
+   border: 1px solid var(--text-primary);
+   &__header {
+      @include flex;
+      gap: 30px;
+      padding: 20px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+      & > input {
+         padding: 10px 13px;
+         border-radius: 999px;
+         border: none;
+         color: black;
+         padding-right: 40px;
+         width: 100%;
+         &::placeholder {
+            color: #706d6d;
+         }
+      }
+   }
+
+   &__line {
+      @include flex;
+      gap: 30px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      padding: 20px 30px;
+      transition: 0.1s;
+
+      &.user {
+         &:hover {
+            background: rgba(56, 56, 56, 0.729);
+         }
+      }
+   }
+
+   &__column {
+      width: 50%;
+   }
+
+   &__main {
+      height: 100%;
+   }
+
+   &__body {
+      height: 100%;
+
+      & > .no_products {
+         width: 100%;
+         height: 100%;
+         @include flex($justify: center);
+         font-size: 40px;
+         color: rgb(66, 66, 66);
+         font-weight: 700;
+         text-align: center;
+      }
+   }
+}
+
+.contextMenuContainer {
+   position: fixed;
+   top: 0;
+   left: 0;
+}
+@media (max-width: 1600px) {
+   .page {
+      padding: 20px;
+   }
+
+   .usersList {
+      padding: 25px 15px;
+   }
+}
+@media (max-width: 1400px) {
+   .page {
+      flex-direction: column;
+   }
+
+   .usersList {
+      height: 49%;
+      width: 100%;
+      border: 1px solid var(--text-primary);
+   }
+}
+
+@media (max-width: 900px) {
+   .page {
+      padding: 0;
+      height: calc(100vh - var(--header-height));
+      gap: 0;
+   }
+
+   .usersList {
+      padding: 10px;
+      height: 50%;
+      border-radius: 0;
+      border: none;
+      border-bottom: 1px solid white;
+      &__header {
+
+         padding: 10px 0;
+      }
+   }
+}
+
