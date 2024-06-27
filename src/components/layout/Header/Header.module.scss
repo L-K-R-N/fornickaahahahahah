@@ -9,6 +9,10 @@
    background-color: black;
    border-bottom: 2px solid $black;
    font-family: $font-tildaSans;
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 990;
    &__content {
       display: flex;
       flex-direction: row;

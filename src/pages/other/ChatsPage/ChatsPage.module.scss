@@ -6,7 +6,8 @@
    width: 100vw;
    @include flex($align: stretch);
    font-family: $font-tildaSans;
-   max-height: calc(100vh - var(--header-height));
+   height: calc(100vh);
+   padding-top: calc(var(--header-height));
    overflow: hidden;
    .backBtn {
       display: none;
@@ -178,11 +179,12 @@
          position: fixed;
          top: var(--header-height);
          left: 0;
-         z-index: 99999999;
+         z-index: 9996;
          transform: translateX(-100vw);
          height: 100vh;
-         background: rgba(2, 2, 2, 0.986);
+         background: var(--background-primary);
          transition: 0.3s;
+         border-right: none;
          &.active {
             transform: translateX(0);
          }

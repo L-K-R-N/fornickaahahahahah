@@ -156,7 +156,7 @@ export const Header: React.FC<Props> = () => {
                      />
 
                      <div className={cl.header__control}>
-                        {(isAuth && location.pathname !== '/chats') &&
+                        {(isAuth && location.pathname !== '/chats' && location.pathname !== '/add') &&
                            (!location.pathname.includes('admin') && (
                               <button
                                  title="Submit an ad"

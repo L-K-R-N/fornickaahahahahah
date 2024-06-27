@@ -4,6 +4,7 @@
 
 .add {
    font-family: $font-tildaSans;
+   padding-top: calc(var(--header-height));
    &Header {
       width: 100vw;
       background: url('./assets//bg.png');

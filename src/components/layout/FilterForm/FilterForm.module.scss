@@ -242,11 +242,13 @@
       gap: 30px;
       padding: 20px;
       border: 1px solid var(--background-secondary);
-      border-radius: 5px;
+      border-radius: 10px;
       transition: 0.3s;
-      margin-top: 30px;
+      margin-top: 10px;
       box-shadow: -3px 4px 4px 0 rgba(0, 0, 0, 0.4);
       background: var(--negative);
+      border: 2px solid black;
+
       & label {
          display: none;
       }
@@ -435,11 +437,12 @@
 }
 
 @media screen and (max-width: 450px) {
+
+   
    .form {
       @include flex($direction: column, $justify: start, $align: stretch);
       gap: 10px;
       padding: 10px;
-
       & label {
          display: none;
       }
